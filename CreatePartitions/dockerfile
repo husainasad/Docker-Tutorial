@@ -1,0 +1,9 @@
+FROM python:2.7
+## No need to copy files if same volume is being mounted to the container
+# COPY Interface.py /app/
+# COPY tester.py /app/
+# COPY testHelper.py /app/
+# COPY test_data.txt /app/
+RUN pip install --no-cache-dir --upgrade pip
+RUN pip install --no-cache-dir psycopg2
+CMD ["tail", "-f", "/dev/null"]
