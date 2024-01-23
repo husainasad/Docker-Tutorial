@@ -1,0 +1,15 @@
+FROM jupyter/base-notebook
+# RUN sudo apt-get update
+# RUN sudo apt-get install -y build-essential
+
+# change user to root for sudo commands
+USER root
+RUN sudo apt-get update && sudo apt-get install -y build-essential
+RUN pip install --no-cache-dir --upgrade pip
+RUN pip install --no-cache-dir unqlite
+
+# change user so image runs as non user
+USER $NB_UID
+
+# can skip out cmd command
+# CMD ["tail", "-f", "/dev/null"]
