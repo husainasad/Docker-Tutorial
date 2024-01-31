@@ -1,0 +1,7 @@
+FROM jupyter/base-notebook
+USER root
+RUN apt-get update && apt-get install -y build-essential
+USER $NB_UID
+RUN pip install --no-cache-dir --upgrade pip
+RUN pip install --no-cache-dir lightfm
+RUN pip install --no-cache-dir matplotlib
